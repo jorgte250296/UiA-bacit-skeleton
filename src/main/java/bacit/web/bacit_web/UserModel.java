@@ -13,7 +13,6 @@ public class UserModel {
         this.userName = userName;
         this.password = password;
         this.dob = dob;
-
     }
 
     public String getFirstName() {

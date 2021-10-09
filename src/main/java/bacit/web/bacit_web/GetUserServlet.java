@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "GetUserServlet", value = "/GetUserServlet")
 public class GetUserServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -24,6 +25,7 @@ public class GetUserServlet extends HttpServlet {
             UserModel model = getUser(uname, out);
 
             out.println(model.getFirstName());
+            out.println(model.getLastName());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -37,6 +39,7 @@ public class GetUserServlet extends HttpServlet {
 
     private UserModel getUser(String uname, PrintWriter out) throws SQLException {
         Connection db = null;
+
         try {
             db = DBUtils.getINSTANCE().getConnection(out);
         } catch (ClassNotFoundException e) {
